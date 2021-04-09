@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 import Admin from './Admin'
 import Controls from './Controls'
@@ -17,11 +17,32 @@ function App() {
   const [startTime, setStartTime] = useState(new Date())
   const [control, setControl] = useState(false)
   const [connection, setConnection] = useState("Not connected to server.")
+  const [isSolo, setIsSolo] = useState(false);
+
+  const requestRef = useRef()
+  const previousTimeRef = useRef()
+
+  const [test, setTest] = useState(0)
+  
+  /*const animate = time => {
+    if (previousTimeRef.current != undefined) {
+      updateTimer()
+    }
+    previousTimeRef.current = time
+    requestRef.current = requestAnimationFrame(animate)
+  }
+
+  useEffect(() => {
+    requestRef.current = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(requestRef.current)
+  }, [curSection, isPlaying])*/
 
   useEffect(() => {
     socket.on("Hello", (res) => setConnection(res + " client(s) connected to server :)"))
-    socket.on("Start", (res) => startSection(res))
-    socket.on("Stop", () => stop())
+    
+    socket.on("Start", (res) => startSection(res, true))
+    socket.on("Stop", () => stop(true))
+
   }, [])
   
   useEffect(() => {
@@ -31,7 +52,11 @@ function App() {
     }
   })
 
-  function startSection(section) {
+  function startSection(section, server=false) {
+    if (server) {
+      if (isSolo) return;
+    }
+
     setTimer(data[section].duration)
     setPercent(0)
     setCurSection(section)
@@ -39,7 +64,11 @@ function App() {
     setIsPlaying(true)
   }
 
-  function stop() {
+  function stop(server=false) {
+    if (server) {
+      if (isSolo) return;
+    }
+
     setTimer(data[0].duration)
     setPercent(0)
     setCurSection(0)
@@ -49,7 +78,11 @@ function App() {
 
   function handleInput(event) {
     if (event.target.type === "checkbox") {
-      setControl(!control)
+      if (event.target.name === "client-control") {
+        setControl(!control)
+      } else if (event.target.name === "solo-control") {
+        setIsSolo(!isSolo)
+      }
       return
     }
 
@@ -102,6 +135,7 @@ function App() {
     <>
       <Countdown 
         isPlaying={isPlaying} 
+        isSolo={isSolo}
         curSection={curSection}
         timer={timer}
         percent={percent}
@@ -117,6 +151,7 @@ function App() {
       />
       <Admin 
         control={control}
+        solo={isSolo}
         controlHandler={handleInput}
         connection={connection} 
       />

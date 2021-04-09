@@ -3,6 +3,15 @@ import React from 'react'
 const Admin = (props) => {
   return (
     <div className="admin">
+      {/* <label>
+        <input 
+          name="solo-control" 
+          type="checkbox"
+          checked={props.isSolo}
+          onChange={props.controlHandler}  
+        />
+        &nbsp;Solo? (ONLY tick when practicing by yourself. Page will NOT be updated by the server when ticked.)
+      </label><br/> */}
       <label>
         <input 
           name="client-control" 

@@ -105,19 +105,19 @@ const data = [
     cycle: 5,
     duration: 3,
     id: 17,
-    section: "Soaring",
+    section: "Ascent",
   },
   {
     cycle: 5,
     duration: 1,
     id: 18,
-    section: "Descent",
+    section: "Soaring",
   },
   {
     cycle: 6,
     duration: 2,
     id: 19,
-    section: "Ascent",
+    section: "*Ascent*",
   },
 ]
 

@@ -6,6 +6,12 @@ import ProgressBar from './ProgressBar'
 function Countdown(props) {
   return (
     <div className="countdown">
+      {
+        props.isSolo ? 
+          <p className="red">SOLO MODE: Uncheck box at bottom for the performance.</p> :
+          null
+      }
+      
       <p className="section_title">
         {data[props.curSection]?.section}&nbsp;
         {data[props.curSection]?.cycle}&nbsp;
@@ -16,9 +22,9 @@ function Countdown(props) {
       </p>
       <ProgressBar percent={props.percent}/>
       <p className="section_next">
-        Next: {data[props.curSection+1]?.section}&nbsp;
+        Next: <b>{data[props.curSection+1]?.section}&nbsp;
               {data[props.curSection+1]?.cycle}&nbsp;
-              ({data[props.curSection+1]?.duration}")
+              ({data[props.curSection+1]?.duration}")</b>
       </p>
     </div>
   )
