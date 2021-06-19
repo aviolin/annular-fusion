@@ -1,0 +1,347 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+  font-family: 'Roboto', sans-serif;
+  padding: 1rem;
+  color: #5e5e5e;
+}
+
+p {
+  line-height: 1.3rem;
+}
+
+.light {
+  color: #afafaf;
+}
+
+header.nav {
+  background-color: #f1f1f1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  max-width: calc(1024px + 4rem);
+  margin: auto;
+}
+
+header.nav .icon {
+  margin-right: .5rem;
+}
+
+header.nav .logo {
+  font-weight: bold;
+}
+
+header.nav .logo .icon {
+  color: #cf88e8;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 400;
+  font-size: 2rem;
+  margin-top: 5rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li .list-btn {
+  background-color: transparent;
+  border: none;
+  padding: .8rem 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  border-radius: 3rem;
+  color: #5e5e5e;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+ul li .list-btn div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+ul li .list-btn div .circle {
+  background-color: transparent;
+  width: .5rem;
+  height: .5rem;
+  border-radius: 50%;
+  border: 1px solid #5e5e5e;
+  margin-right: .8rem;
+}
+
+ul li .list-btn.current, ul li .list-btn:hover {
+  background-color: #f4eff6;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+ul li .list-btn.current div .circle, ul li .list-btn:hover div .circle {
+  background-color: #cf88e8;
+}
+
+ul li .list-btn.completed {
+  text-decoration: line-through;
+  color: #afafaf;
+}
+
+ul li .list-btn.completed .circle {
+  border-color: #afafaf;
+}
+
+.section-list {
+  background-color: #fff;
+  padding: 1rem;
+  max-width: 768px;
+  margin: auto;
+}
+
+.countdown {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  -ms-grid-rows: auto auto auto;
+      grid-template-rows: auto auto auto;
+  max-width: 1024px;
+  margin: auto;
+}
+
+.countdown .timer {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1 / 4;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.countdown .section-title {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3 / 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  font-size: 0.8rem;
+}
+
+.countdown .section-next {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3 / 4;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3 / 4;
+  font-size: 0.8rem;
+  text-align: right;
+}
+
+.progress_container {
+  width: 100%;
+  height: 3rem;
+  background-color: #fff;
+  border-radius: 3rem;
+  padding: .5rem;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1 / 4;
+}
+
+.progress_container .progress {
+  background: -webkit-gradient(linear, left top, right top, from(#cf88e8), to(#dab2e8));
+  background: linear-gradient(to right, #cf88e8 0%, #dab2e8 100%);
+  width: 50%;
+  height: 100%;
+  border-radius: 3rem;
+}
+
+.controls {
+  text-align: center;
+}
+
+.controls button {
+  padding: .8rem 2.5rem;
+  background-color: #cf88e8;
+  border: 0;
+  border-radius: 3rem;
+  color: #fff;
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+  font-size: 1rem;
+  -webkit-box-shadow: 0 .3rem .5rem #0004;
+          box-shadow: 0 .3rem .5rem #0004;
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.controls button:hover {
+  background-color: #dab2e8;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.admin {
+  background-color: #fff;
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  max-width: 768px;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+.admin header {
+  font-size: 1.3rem;
+  color: #afafaf;
+}
+
+.admin .admin-toggle-btn {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 1rem;
+  -webkit-transition: .2s;
+  transition: .2s;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.admin .admin-toggle-btn span {
+  color: #afafaf;
+}
+
+.admin .admin-toggle-btn:hover {
+  color: #cf88e8;
+}
+
+.admin div {
+  margin-top: 2rem;
+  padding-left: 1rem;
+}
+
+.admin label input {
+  margin-right: 1rem;
+}
+
+.admin p.clients {
+  font-style: italic;
+}
+
+.admin p.what {
+  margin-top: 2rem;
+  font-size: 1.3rem;
+  color: #afafaf;
+}
+
+.admin p.what .icon {
+  color: #5e5e5e;
+  margin-right: 1rem;
+}
+
+.admin p.footnote {
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+footer {
+  max-width: 1024px;
+  margin: auto;
+  max-width: 768px;
+  margin: auto;
+  margin-top: 5rem;
+}
+
+footer .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+footer .links a {
+  display: block;
+  margin: .5rem 0;
+  text-decoration: none;
+  color: #5e5e5e;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+footer .links a .icon {
+  margin-right: 1rem;
+}
+
+footer .links a:hover {
+  color: #cf88e8;
+}
+
+footer .copyright {
+  color: #afafaf;
+}
+
+@media only screen and (min-width: 768px) {
+  .countdown .section-title,
+  .countdown .section-next {
+    font-size: 1rem;
+  }
+  footer {
+    text-align: center;
+  }
+  footer .links {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 3rem;
+  }
+}
+/*# sourceMappingURL=main.css.map */

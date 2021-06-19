@@ -1,0 +1,324 @@
+$color-background: #f1f1f1;
+$color-primary: #cf88e8;
+$color-primary-light: #dab2e8;
+$color-light: #fff;
+$color-off-light: #f4eff6;
+$color-text: #5e5e5e;
+$color-text-light: #afafaf;
+
+$font-small: .8rem;
+$font-medium: 1rem;
+$font-large: 1.3rem;
+$font-huge: 2rem;
+
+@mixin clamp-width {
+  max-width: 768px;
+  margin: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $color-background;
+  font-family: 'Roboto', sans-serif;
+
+  padding: 1rem;
+  color: $color-text;
+}
+
+p {
+  line-height: $font-large;
+}
+
+.light {
+  color: $color-text-light;
+}
+
+header.nav {
+  background-color: $color-background;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
+  max-width: calc(1024px + 4rem);
+  margin: auto;
+
+  .icon {
+    margin-right: .5rem;
+  }
+
+  .logo {
+    font-weight: bold;
+
+    .icon {
+      color: $color-primary;
+    }
+  }
+}
+
+h1 {
+  text-align: center;
+  font-weight: 400;
+  font-size: $font-huge;
+  margin-top: 5rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    .list-btn {
+      background-color: transparent;
+      border: none;
+      padding: .8rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      border-radius: 3rem;
+      color: $color-text;
+      transition: .2s;
+
+      div {
+        display: flex;
+        align-items: center;
+
+        .circle {
+          background-color: transparent;
+          width: .5rem;
+          height: .5rem;
+          border-radius: 50%;
+          border: 1px solid $color-text;
+          margin-right: .8rem;
+          
+        }
+      }
+
+      &.current,
+      &:hover {
+        background-color: $color-off-light;
+        font-weight: bold;
+        cursor: pointer;
+
+        div .circle {
+          background-color: $color-primary;
+        }
+      }
+
+      &.completed {
+        text-decoration: line-through;
+        color: $color-text-light;
+
+        .circle {
+          border-color: $color-text-light;
+        }
+      }
+    }
+  }
+}
+
+.section-list {
+  background-color: $color-light;
+  padding: 1rem;
+
+  @include clamp-width;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+
+  max-width: 1024px;
+  margin: auto;
+
+  .timer {
+    grid-row: 1 / 2;
+    grid-column: 1 / 4;
+    text-align: center;
+    font-size: $font-large;
+    font-weight: bold;
+  }
+
+  .section-title {
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+    font-size: $font-small;
+  }
+
+  .section-next {
+    grid-row: 3 / 4;
+    grid-column: 3 / 4;
+    font-size: $font-small;
+    text-align: right;
+  }
+
+}
+
+.progress_container {
+  width: 100%;
+  height: 3rem;
+  background-color: $color-light;
+  border-radius: 3rem;
+  padding: .5rem;
+
+  grid-row: 2 / 3;
+  grid-column: 1 / 4;
+  
+  .progress {
+    background: linear-gradient(to right, $color-primary 0%, $color-primary-light 100%);
+    width: 50%;
+    height: 100%;
+    border-radius: 3rem;
+  }
+}
+
+.controls {
+  text-align: center;
+
+  button {
+    padding: .8rem 2.5rem;
+    background-color: $color-primary;
+    border: 0;
+    border-radius: 3rem;
+    color: $color-light;
+    transform: translateY(50%);
+    font-size: $font-medium;
+    box-shadow: 0 .3rem .5rem #0004;
+    cursor: pointer;
+    transition: .2s;
+
+    &:hover {
+      background-color: $color-primary-light;
+      box-shadow: none;
+    }
+  }
+}
+
+.admin {
+  background-color: $color-light;
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  @include clamp-width;
+  margin-top: 2rem;
+  
+  header {
+    font-size: $font-large;
+    color: $color-text-light;
+    
+  }
+
+  .admin-toggle-btn {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    padding: 1rem;
+    transition: .2s;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      color: $color-text-light;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  div {
+    margin-top: 2rem;
+    padding-left: 1rem;
+  }
+
+  label {
+    input {
+      margin-right: 1rem;
+    }
+  }
+
+  p {
+    &.clients {
+      font-style: italic;
+    }
+
+    &.what {
+      margin-top: 2rem;
+      font-size: $font-large;
+      color: $color-text-light;
+
+      .icon {
+        color: $color-text;
+        margin-right: 1rem;
+      }
+    }
+
+    &.footnote {
+      font-style: italic;
+      font-size: $font-small;
+    }
+  }
+}
+
+footer {
+  max-width: 1024px;
+  margin: auto;
+  @include clamp-width;
+  margin-top: 5rem;
+
+  .links {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      display: block;
+      margin: .5rem 0;
+      text-decoration: none;
+      color: $color-text;
+      transition: .2s;
+
+      .icon {
+        margin-right: 1rem;
+
+      }
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+
+  .copyright {
+    color: $color-text-light;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .countdown {
+    .section-title,
+    .section-next {
+      font-size: $font-medium;
+    }
+  }
+
+  footer {
+    .links {
+      flex-direction: row;
+      width: 100%;
+      justify-content: center;
+      gap: 3rem;
+    }
+
+    text-align: center;
+  }
+}

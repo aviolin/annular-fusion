@@ -3,46 +3,29 @@ import React, { useState, useEffect, useRef } from 'react'
 import Admin from './Admin'
 import Controls from './Controls'
 import Countdown from './Countdown'
+import Footer from './Footer'
+import Header from './Header'
 import SectionList from './SectionList'
 import { socket } from './socket'
 
-import './App.css'
+import '../styles/normalize.css'
+import '../styles/main.css'
 import data from './data'
 
 function App() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [timer, setTimer] = useState(data[0].duration)
   const [percent, setPercent] = useState(0)
-  const [curSection, setCurSection] = useState(0)
+  const [curSection, setCurSection] = useState(-1)
   const [startTime, setStartTime] = useState(new Date())
   const [control, setControl] = useState(false)
   const [connection, setConnection] = useState("Not connected to server.")
   const [isSolo, setIsSolo] = useState(false);
 
-  const requestRef = useRef()
-  const previousTimeRef = useRef()
-
-  const [test, setTest] = useState(0)
-  
-  /*const animate = time => {
-    if (previousTimeRef.current != undefined) {
-      updateTimer()
-    }
-    previousTimeRef.current = time
-    requestRef.current = requestAnimationFrame(animate)
-  }
-
   useEffect(() => {
-    requestRef.current = requestAnimationFrame(animate)
-    return () => cancelAnimationFrame(requestRef.current)
-  }, [curSection, isPlaying])*/
-
-  useEffect(() => {
-    socket.on("Hello", (res) => setConnection(res + " client(s) connected to server :)"))
-    
+    socket.on("Hello", (res) => setConnection(res + " client(s) connected to server."))
     socket.on("Start", (res) => startSection(res, true))
     socket.on("Stop", () => stop(true))
-
   }, [])
   
   useEffect(() => {
@@ -71,7 +54,7 @@ function App() {
 
     setTimer(data[0].duration)
     setPercent(0)
-    setCurSection(0)
+    setCurSection(-1)
     setStartTime(new Date())
     setIsPlaying(false)
   }
@@ -87,8 +70,18 @@ function App() {
     }
 
     let btnSection = 0
-    if (event.target.classList.contains('btn-link')) {
+    if (event.target.classList.contains('list-btn')) {
       btnSection = +event.target.dataset.id
+
+      if (btnSection === curSection && isPlaying) {
+        if (control) {
+          socket.emit("Stop")
+          return;
+        }
+
+        setIsPlaying(false)
+        return;
+      }
 
       if (control) {
         socket.emit("Start", btnSection)
@@ -133,6 +126,8 @@ function App() {
 
   return (
     <>
+      <Header />
+      <h1>Annular Fusion</h1>
       <Countdown 
         isPlaying={isPlaying} 
         isSolo={isSolo}
@@ -148,6 +143,7 @@ function App() {
       <SectionList 
         btnHandler={handleInput}
         curSection={curSection}
+        isPlaying={isPlaying}
       />
       <Admin 
         control={control}
@@ -155,6 +151,7 @@ function App() {
         controlHandler={handleInput}
         connection={connection} 
       />
+      <Footer />
     </>
   )
 }
