@@ -1,7 +1,10 @@
+/**
+ * Contains the main start/stop button.
+ */
+
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons'
-import Button from './Button'
 
 function Controls(props) {
   const tag = props.control === true ? " All" : ""
@@ -10,10 +13,12 @@ function Controls(props) {
 
   return (
     <div className={ props.control === true ? "controls all" : "controls"}>
-      <Button 
-        text={props.isPlaying ? stopText : playText} 
-        onClick={props.btnHandler}
-        id="local" />
+      <button 
+        onClick={props.btnHandler} 
+        id="local"
+      >
+        {props.isPlaying ? stopText : playText} 
+      </button>
     </div>
   )
 }

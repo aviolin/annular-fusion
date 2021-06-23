@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react'
+/**
+ * Contains logic for controlling the timers, and
+ * acts as a wrapper for the rest of the components
+ * in the app.
+ */
+
+import React, { useState, useEffect } from 'react'
 
 import Admin from './Admin'
 import Controls from './Controls'
@@ -10,6 +16,7 @@ import { socket } from './socket'
 
 import '../styles/normalize.css'
 import '../styles/main.css'
+
 import data from './data'
 
 function App() {
@@ -37,7 +44,7 @@ function App() {
 
   function startSection(section, server=false) {
     if (server) {
-      if (isSolo) return;
+      if (isSolo) return
     }
 
     setTimer(data[section].duration)
@@ -49,7 +56,7 @@ function App() {
 
   function stop(server=false) {
     if (server) {
-      if (isSolo) return;
+      if (isSolo) return
     }
 
     setTimer(data[0].duration)
@@ -76,11 +83,11 @@ function App() {
       if (btnSection === curSection && isPlaying) {
         if (control) {
           socket.emit("Stop")
-          return;
+          return
         }
 
         setIsPlaying(false)
-        return;
+        return
       }
 
       if (control) {
@@ -105,7 +112,7 @@ function App() {
   function updateTimer() {
     if (!isPlaying || curSection >= data.length) {
       stop()
-      return;
+      return
     }
 
     const now = new Date()

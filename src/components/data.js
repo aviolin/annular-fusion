@@ -1,3 +1,14 @@
+/**
+ * Contains data for "Annular Fusion". The piece
+ * is written in cycles, which is why it contains
+ * a cycle property.
+ * 
+ * cycle: [cycle number]
+ * duration: [duration in seconds]
+ * id: [determines the order]
+ * section: [section name]
+ */
+
 const data = [
   {
     cycle: 0,

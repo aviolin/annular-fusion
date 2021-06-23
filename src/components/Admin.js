@@ -1,3 +1,7 @@
+/**
+ * Displays the admin component.
+ */
+
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuestionCircle, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
@@ -10,7 +14,6 @@ const Admin = (props) => {
       <header>
         <button className="admin-toggle-btn" onClick={() => setIsOpen(prev => !prev)}>
           <span>Admin</span>
-
           {
             isOpen ? 
             <FontAwesomeIcon icon={faAngleUp} />

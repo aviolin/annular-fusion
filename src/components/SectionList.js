@@ -1,6 +1,11 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+/**
+ * Creates and displays a list of all the sections
+ * the timer will count down.
+ */
+
 import React from 'react'
-import { faPlay, faStop } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlay, faStop } from '@fortawesome/free-solid-svg-icons'
 
 import data from './data'
 

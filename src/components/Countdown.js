@@ -1,17 +1,15 @@
-import React from 'react'
+/**
+ * Displays the progress bar as well as the 
+ * information around it.
+ */
 
+import React from 'react'
 import data from './data'
 import ProgressBar from './ProgressBar'
 
 function Countdown(props) {
   return (
     <div className="countdown">
-      {
-        props.isSolo ? 
-          <p className="red">SOLO MODE: Uncheck box at bottom for the performance.</p> :
-          null
-      }
-      
       <p className="timer">
         {
           data[props.curSection] ?
@@ -19,7 +17,6 @@ function Countdown(props) {
           :
           <>&nbsp;</>
         }
-        
       </p>
       <ProgressBar percent={props.percent}/>
       <p className="section-title">
