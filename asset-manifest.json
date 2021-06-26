@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/annular-fusion/static/css/main.21f269fa.chunk.css",
-    "main.js": "/annular-fusion/static/js/main.035181c7.chunk.js",
-    "main.js.map": "/annular-fusion/static/js/main.035181c7.chunk.js.map",
+    "main.css": "/annular-fusion/static/css/main.76926bdd.chunk.css",
+    "main.js": "/annular-fusion/static/js/main.50c3f9d5.chunk.js",
+    "main.js.map": "/annular-fusion/static/js/main.50c3f9d5.chunk.js.map",
     "runtime-main.js": "/annular-fusion/static/js/runtime-main.8a0c23ff.js",
     "runtime-main.js.map": "/annular-fusion/static/js/runtime-main.8a0c23ff.js.map",
     "static/js/2.59161520.chunk.js": "/annular-fusion/static/js/2.59161520.chunk.js",
     "static/js/2.59161520.chunk.js.map": "/annular-fusion/static/js/2.59161520.chunk.js.map",
     "index.html": "/annular-fusion/index.html",
-    "static/css/main.21f269fa.chunk.css.map": "/annular-fusion/static/css/main.21f269fa.chunk.css.map",
+    "static/css/main.76926bdd.chunk.css.map": "/annular-fusion/static/css/main.76926bdd.chunk.css.map",
     "static/js/2.59161520.chunk.js.LICENSE.txt": "/annular-fusion/static/js/2.59161520.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8a0c23ff.js",
     "static/js/2.59161520.chunk.js",
-    "static/css/main.21f269fa.chunk.css",
-    "static/js/main.035181c7.chunk.js"
+    "static/css/main.76926bdd.chunk.css",
+    "static/js/main.50c3f9d5.chunk.js"
   ]
 }
