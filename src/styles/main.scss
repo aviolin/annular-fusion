@@ -20,6 +20,10 @@ $font-huge: 2rem;
   box-sizing: border-box;
 }
 
+.no-pointer-events {
+  pointer-events: none;
+}
+
 body {
   background-color: $color-background;
   font-family: 'Roboto', sans-serif;

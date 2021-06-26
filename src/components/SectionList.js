@@ -25,7 +25,7 @@ const SectionList = (props) => {
           onClick={props.btnHandler}
           data-id={section.id}
         >
-          <div>
+          <div className="no-pointer-events">
             <span className="circle"></span>
             {section.section}&nbsp;
             {section.cycle}&nbsp;
@@ -33,9 +33,9 @@ const SectionList = (props) => {
           </div>
           {
             props.curSection === section.id && props.isPlaying ?
-            <FontAwesomeIcon icon={faStop} />
+            <FontAwesomeIcon icon={faStop} className="no-pointer-events" />
             :
-            <FontAwesomeIcon icon={faPlay} />
+            <FontAwesomeIcon icon={faPlay} className="no-pointer-events" />
           }
         </button>
       </li>

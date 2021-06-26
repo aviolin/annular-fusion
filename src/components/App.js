@@ -79,7 +79,6 @@ function App() {
     let btnSection = 0
     if (event.target.classList.contains('list-btn')) {
       btnSection = +event.target.dataset.id
-
       if (btnSection === curSection && isPlaying) {
         if (control) {
           socket.emit("Stop")
