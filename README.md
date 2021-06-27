@@ -10,7 +10,7 @@ Each performer should load the app on a device. One performer will be chosen as 
 
 # Features
 * Timer with countdown for each section of the piece of music.
-* Websocket server to notify all clients when to begin.
+* Node.js server using Express and WebSockets to notify all clients when to start and stop their timers.
 * Ability to control only your own client or all clients.
 
 ## Todo
