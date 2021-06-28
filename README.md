@@ -1,7 +1,7 @@
 # Synch Timer - Annular Fusion
 ![Screenshot of the Annular Fusion Timer app](https://i.ibb.co/J5y5kVc/annular-fusion-screenshot.png)
 
-A synchronous timer created using React, Node and websockets to help musicians perform "Annular Fusion" by Chappell Kingsland over Zoom.
+A synchronous timer created using React, Node.js, Express and WebSockets to help musicians perform the piece "Annular Fusion" together over Zoom.
 
 View the app live at: https://aviolin.github.io/annular-fusion
 
